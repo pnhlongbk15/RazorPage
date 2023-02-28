@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using RazorPage.Models;
+using RazorPage.Models.Identity;
 
 namespace RazorPage
 {
@@ -19,7 +21,10 @@ namespace RazorPage
                 option.UseMySQL(connectString);
             });
 
-
+            // register Identity
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<MyBlogContext>()
+                .AddDefaultTokenProviders();
 
             services.AddRazorPages()
                 .AddRazorPagesOptions(options =>

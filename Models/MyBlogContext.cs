@@ -1,14 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using RazorPage.Models.Identity;
 
 namespace RazorPage.Models
 {
-    public class MyBlogContext : DbContext
+    public class MyBlogContext : IdentityDbContext<User>
     {
         public DbSet<Article> articles { get; set; }
 
         public MyBlogContext(DbContextOptions<MyBlogContext> options) : base(options)
         {
             //...option for MyBlog
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

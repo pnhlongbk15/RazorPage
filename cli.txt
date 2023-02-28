@@ -1,0 +1,1 @@
+//dotnet aspnet-codegenerator razorpage -m RazorPage.Models.Article -dc RazorPage.Models.MyBlogContext -outDir Areas/Blog -udl --referenceScriptLibraries
