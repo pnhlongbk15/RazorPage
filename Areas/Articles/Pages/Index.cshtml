@@ -1,0 +1,17 @@
+﻿@page
+@using RazorPage.Models;
+@using RazorPage.Areas.Articles.Pages
+
+@model Articles
+@{
+    ViewData["Title"] = "Articles";
+    var posts = ViewData["posts"] as List<Article>;
+    Console.WriteLine("Views: {0}", posts);
+}
+
+<ol>
+    @foreach(var a in posts)
+    {
+        <li>@a.Title</li>
+    }
+</ol>
